@@ -23,8 +23,20 @@ namespace EjerciciosCS
         public double CalcularPromedioTemperatura()
         {
             // TODO: Implementar el cálculo del promedio de temperaturas
-            double promedio = 0.0; 
-            
+
+            double promedio = 0.0;
+
+            double[] temperaturas = {23.5, 43.6, 32.7, 13.3, 4.3};
+
+            double suma = 0 ;
+
+            for (int i = 0; i < temperaturas.Length; i++)
+
+            {
+                suma += temperaturas[i];
+            }
+
+            promedio = suma / 5;
             
             return promedio;
         }
@@ -44,7 +56,18 @@ namespace EjerciciosCS
         public List<string> CrearListaCompras()
         {
             // TODO: Implementar la lista de compras interactiva
+            
             List<string> listaCompras = new List<string>();
+
+            Console.WriteLine("Ingresa productos (escribe 'salir' para terminar):");
+            while (true)
+            {
+                  string entrada = Console.ReadLine();
+                  if (entrada?.ToLower() == "salir") break;
+                  listaCompras.Add(entrada);
+            }
+
+            foreach (var item in listaCompras) Console.WriteLine($"- {item}");
             
 
             return listaCompras;
@@ -71,6 +94,27 @@ namespace EjerciciosCS
             // TODO: Implementar la búsqueda de número en array aleatorio
             bool encontrado = false;
             Random random = new Random();
+
+            
+            int[] numeros = new int[10];
+
+    
+            Console.WriteLine("Números en el array:");
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                numeros[i] = random.Next(0, 101);
+                Console.Write(numeros[i] + " ");
+            }
+            Console.WriteLine(); // saalto de línea
+
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                if (numeros[i] == numeroBuscado)
+                {
+                   encontrado = true;
+                   break; // Si lo encontramos, dejamos de buscar
+                }
+           }
             
 
             return encontrado;
